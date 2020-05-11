@@ -1,0 +1,6 @@
+name: ForeverAdorable
+version: ${project.version}
+main: me.prismskey.foreveradorable.foreveradorable.ForeverAdorable
+api-version: 1.13
+authors: [prismskey]
+description: Allows players to use name tags to prevent mobs from growing up.

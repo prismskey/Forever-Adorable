@@ -5,6 +5,7 @@ import me.prismskey.foreveradorable.foreveradorable.events.PlayerUseNameTagEvent
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Ageable;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -17,6 +18,9 @@ public class PlayerUseNameTagListener implements Listener {
 
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void onPlayerUseNameTag(PlayerUseNameTagEvent event) {
+		if(!event.getPlayer().hasPermission("foreveradorable.use")) {
+			return;
+		}
 
 		if(event.getTarget() instanceof Ageable) {
 			Ageable ageable = (Ageable) event.getTarget();

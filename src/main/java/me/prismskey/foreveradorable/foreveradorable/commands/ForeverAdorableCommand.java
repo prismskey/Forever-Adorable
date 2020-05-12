@@ -4,6 +4,7 @@ import me.prismskey.foreveradorable.foreveradorable.ForeverAdorable;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
+import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +24,7 @@ public class ForeverAdorableCommand extends BukkitCommand {
 		if(args.length < 1) {
 			sender.sendMessage(ForeverAdorable.MESSAGE_PREFIX + ChatColor.translateAlternateColorCodes('&', "&eAbout:"));
 			sender.sendMessage(ChatColor.translateAlternateColorCodes('&',"&eDeveloped by &9prismskey &eaka &9keys9&e."));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Plugin Version: &61.1"));
 			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Usage: &6/fa help"));
 		} else if(args[0].equalsIgnoreCase("help")){
 			sender.sendMessage(ForeverAdorable.MESSAGE_PREFIX + ChatColor.YELLOW + "Help:");

@@ -22,17 +22,13 @@ public class PlayerUseNameTagListener implements Listener {
 			return;
 		}
 
-		if(event.getTarget() instanceof Ageable) {
-			Ageable ageable = (Ageable) event.getTarget();
+boolean isGrowUpTag = event.getNameTag().getItemMeta().getDisplayName().toLowerCase().contains("grow up");
 
-			if(event.getNameTag().getItemMeta().getDisplayName().toLowerCase().contains("baby") && !ageable.isAdult()) {
-				ageable.setAgeLock(true);
-				event.getPlayer().sendMessage(ForeverAdorable.MESSAGE_PREFIX + ChatColor.YELLOW + "Target Animal will remain a baby until name is changed.");
+if(!isGrowUpTag && !ageable.isAdult()) {
+  ageable.setAgeLock(true);
+  event.getPlayer().sendMessage(ForeverAdorable.MESSAGE_PREFIX + ChatColor.YELLOW + "Target Animal will remain a baby until name is changed.");
 
-			} else if(!event.getNameTag().getItemMeta().getDisplayName().toLowerCase().contains("baby") && ageable.getAgeLock()) {
-				ageable.setAgeLock(false);
-				event.getPlayer().sendMessage(ForeverAdorable.MESSAGE_PREFIX + ChatColor.YELLOW + "Target Animal will now age as normal.");
-			}
-		}
-	}
+} else if(isGrowUpTag && ageable.getAgeLock()) {
+  ageable.setAgeLock(false);
+  event.getPlayer().sendMessage(ForeverAdorable.MESSAGE_PREFIX + ChatColor.YELLOW + "Target Animal will now age as normal.");
 }
